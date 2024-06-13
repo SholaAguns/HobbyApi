@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "05580805-252f-4bf2-9954-be2d3e14a6f9",
+		"name": "HobbyAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36306700"
+	},
+	"item": [
+		{
+			"name": "Get Hobbies",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get Hobbies by Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:{{port}}/api/hobbies?category=Water sports",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"hobbies"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "Water sports"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/hobbies/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"hobbies",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create hobby",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Axe throwing\",\r\n    \"category\": \"Extreme sports\",\r\n    \"description\": \"This is a sport that involes throwing axes at a target\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/hobbies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"hobbies"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "port",
+			"value": "17842"
+		}
+	]
+}

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hobbyapi-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hobbyapi
+  template:
+    metadata:
+      labels:
+        app: hobbyapi
+    spec:
+      containers:
+      - name: hobbyapi
+        image: sholaa94/hobbyapi:latest
+        ports:
+        - containerPort: 8080
