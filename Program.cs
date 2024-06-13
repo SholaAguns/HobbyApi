@@ -16,6 +16,14 @@ builder.Services.AddDbContext<HobbyContext>(
 
 var app = builder.Build();
 
+// Apply migrations and seed the database
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<HobbyContext>();
+    context.Database.Migrate();
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
