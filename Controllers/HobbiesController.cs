@@ -34,9 +34,8 @@ namespace HobbyApi.Controllers
         {
             var maxId = await this.context.Hobbies.AnyAsync()
                         ? await this.context.Hobbies.MaxAsync(h => h.Id) : 0;
-            var newHobby = new Hobby()
+            var newHobby = new Hobby(hobby.Name)
             {
-                Name = hobby.Name,
                 Category = hobby.Category,
                 Description = hobby.Description,
             };
