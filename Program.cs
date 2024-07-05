@@ -1,5 +1,6 @@
 using HobbyApi.DBContexts;
 using Microsoft.EntityFrameworkCore;
+using HobbyApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<HobbyContext>(
     dbContextOptions => dbContextOptions.UseSqlite(
         builder.Configuration["ConnectionStrings:DefaultConnection"]));
+
+builder.Services.AddScoped<HobbyService>();
+
+builder.Services.AddScoped<HobbyCreationService>();
 
 var app = builder.Build();
 

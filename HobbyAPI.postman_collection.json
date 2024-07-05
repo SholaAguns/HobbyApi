@@ -1,16 +1,29 @@
 {
 	"info": {
-		"_postman_id": "05580805-252f-4bf2-9954-be2d3e14a6f9",
+		"_postman_id": "b6e5392a-c8ab-48fb-85a0-d6c82e5810eb",
 		"name": "HobbyAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "36306700"
+		"_exporter_id": "22893955",
+		"_collection_link": "https://gold-shuttle-3295.postman.co/workspace/Shola_Test~94561100-cfd3-45d0-a559-7019e661c1ea/collection/22893955-b6e5392a-c8ab-48fb-85a0-d6c82e5810eb?action=share&source=collection_link&creator=22893955"
 	},
 	"item": [
 		{
 			"name": "Get Hobbies",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:{{port}}/api/hobbies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"hobbies"
+					]
+				}
 			},
 			"response": []
 		},
