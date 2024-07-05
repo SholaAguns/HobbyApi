@@ -8,6 +8,27 @@
 	},
 	"item": [
 		{
+			"name": "Healthcheck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:{{port}}/api/hobby/ping",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"hobby",
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Get Hobbies",
 			"request": {
 				"method": "GET",

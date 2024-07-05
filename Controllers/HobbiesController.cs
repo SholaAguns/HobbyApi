@@ -10,11 +10,9 @@ namespace HobbyApi.Controllers
     public class HobbyController : ControllerBase
     {
         private readonly HobbyService hobbyService;
-        private readonly HobbyCreationService hobbyCreationService;
-        public HobbyController(HobbyService hobbyService, HobbyCreationService hobbyCreationService)
+        public HobbyController(HobbyService hobbyService)
         {
             this.hobbyService = hobbyService;
-            this.hobbyCreationService = hobbyCreationService;
 
         }
 
@@ -37,12 +35,12 @@ namespace HobbyApi.Controllers
         }
 
         [HttpGet("{id}", Name = "GetHobyyById")]
-        public IActionResult GetHobby(Guid id)
+        public async Task<IActionResult> GetHobby(Guid id)
         {
-            var hobby = this.hobbyService.GetHobby(id);
+            var hobby = await this.hobbyService.GetHobby(id);
             if (hobby == null)
             {
-                return Ok(NotFound());
+                return NotFound();
             }
 
             return Ok(hobby);
@@ -51,21 +49,10 @@ namespace HobbyApi.Controllers
 
 
         [HttpGet("categories")]
-        public IActionResult GetCategories()
+        public async Task<IActionResult> GetCategories()
         {
 
-            return Ok(this.hobbyService.GetAllCategories());
-        }
-
-        [HttpPost]
-        public async Task<ActionResult> CreateHoby(HobbyCreation hobbyCreationRequest)
-        {
-            var newHobby = new Hobby();
-            newHobby = await this.hobbyCreationService.CreateHobby(hobbyCreationRequest);
-            var routeValues = new { id = newHobby.Id };
-
-            return CreatedAtRoute("GetHobyyById", routeValues, newHobby);
-
+            return Ok(await this.hobbyService.GetAllCategories());
         }
     }
 }
